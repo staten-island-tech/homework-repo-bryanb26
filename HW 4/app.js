@@ -31,6 +31,14 @@ const inventors = [
     // 2. Give us an array of the inventor first and last names
     //console.table the results
    
+    let names = inventors.map( inventors => {
+      return {
+          first: inventors.first,
+          last: inventors.last
+  }});
+    
+    console.table(names);
+
  
 
    
