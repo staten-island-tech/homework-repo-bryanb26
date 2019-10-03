@@ -1,24 +1,28 @@
-const list = document.querySelectorAll('li');
-const listArray = Array.from(list);
+const LIs = Array.from(document.querySelectorAll('li'));
 //console.log(listArray);
 
-const flexboxList = listArray.filter(item => {
-    item = item.textContent;
-    return item.includes('Flexbox') == true;
-});
+const LIsFiltered = LIs.filter(LI => LI.textContent == "Flexbox Video");
 //console.log(flexboxList);
 
-const filtered = flexboxList.map(item => {
-    const time = item.dataset.time;
-    return time;
-});
+const mappedLIs = LIsFiltered.map(obj =>{
+    return obj.dataset.time;
+})
 //console.log(filtered);
 
-const secondsTotal = filtered.map(timeCode => {
+const mappedSeconds = mappedLIs.map()
+
+
+const filteredChained = Array.from(document.querySelectorAll('ul>li'))
+.filter(LI => LI.textContent == "Flexbx Video")
+.map(obj =>{return obj.dataset.time;}) 
+.map(timeCode => {
     const parts = timeCode.split(':');
-    //console.log(parts); 
-    return ((parts[0] * 60) + (parts[1]));
+    return (parseInt(parts[0] * 60)) + parseInt(parts[1]);
+}).reduce((acc, val) => {
+    return acc + val;
 })
+
+console.log(filteredChained);
 
 //idk how to do the rest you go too fast for me im sorry please go over this stuff in class
 
